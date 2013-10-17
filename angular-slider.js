@@ -88,6 +88,7 @@
         ceiling: '@',
         step: '@',
         precision: '@',
+        change: '=?',
         ngModel: '=?',
         ngModelLow: '=?',
         ngModelHigh: '=?',
@@ -271,6 +272,11 @@
                   }
                   newValue = roundStep(newValue, parseInt(scope.precision), parseFloat(scope.step), parseFloat(scope.floor));
                   scope[ref] = newValue;
+                  
+                  if (scope.change) {
+                    scope.change.call(undefined);
+                  }
+                  
                   return scope.$apply();
                 };
                 onStart = function(event) {
