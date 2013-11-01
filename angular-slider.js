@@ -53,18 +53,7 @@
   };
 
   roundStep = function(value, precision, step, floor) {
-    var decimals, remainder, roundedValue, steppedValue;
-    if (floor == null) {
-      floor = 0;
-    }
-    if (step == null) {
-      step = 1 / Math.pow(10, precision);
-    }
-    remainder = (value - floor) % step;
-    steppedValue = remainder > (step / 2) ? value + step - remainder : value - remainder;
-    decimals = Math.pow(10, precision);
-    roundedValue = steppedValue * decimals / decimals;
-    return roundedValue.toFixed(precision);
+    return value;
   };
 
   inputEvents = {
